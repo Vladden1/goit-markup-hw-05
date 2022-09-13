@@ -561,6 +561,10 @@ header.section {
   padding-top: 6px;
   padding-bottom: 6px;
   cursor: pointer;
+
+  transition-property: color, background-color, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: ease;
 }
 
 /* примеры работ / карточки */
