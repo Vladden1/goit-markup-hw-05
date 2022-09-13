@@ -55,10 +55,7 @@ button {
 }
 /* index.html - Студія */
 /* header */
-.page-header {
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
+
 .header {
   display: flex;
   height: 80px;
@@ -96,11 +93,12 @@ button {
   border-bottom: 1px solid #ececec;
 }
 
-.site-nav {
+.nav-list {
   display: flex;
 }
 
-.site-nav .link {
+.nav-list .nav-link {
+  position: relative;
   display: block;
   color: var(--tittle-text-color);
   letter-spacing: 0.02em;
@@ -110,26 +108,44 @@ button {
   line-height: 1.14;
   padding-top: 32px;
   padding-bottom: 32px;
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: linear;
 }
-.site-nav .item + .item,
-.call-us .item + .item {
+.nav-list .nav-item + .nav-item,
+.call-us .nav-item + .nav-item {
   margin-left: 50px;
 }
 
-.site-nav .link:focus,
-.site-nav .link:hover {
+.nav-list .nav-link:focus,
+.nav-list .nav-link:hover {
   color: var(--accent-color);
 }
-.site-nav .link.current {
+.nav-list .nav-link.current {
   color: var(--accent-color);
+}
+.nav-list .nav-link.current::after,
+.nav-link:hover::after {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
 }
 
 /* Связь с нами */
 
-.call-us {
+.call-us-list {
   display: flex;
+  gap: 30px;
 }
-.call-us .link {
+.call-us-link {
   display: block;
   color: #757575;
   font-weight: 500;
@@ -140,30 +156,33 @@ button {
   margin-bottom: 0px;
   padding-top: 32px;
   padding-bottom: 32px;
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: linear;
 }
-.call-us .link:focus,
-.call-us .link:hover {
+.call-us-list .call-us-link:focus,
+.call-us-list .call-us-link:hover {
   color: var(--accent-color);
 }
 
-.call-us .item {
+.call-us-item {
   display: flex;
   align-items: center;
 }
-.link.mail {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.link.tel {
+
+.call-us-link.mail {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.call-us .icon {
+.call-us-link.tel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.call-us-list .icon {
   fill: currentColor;
-  width: 20px;
-  height: 20px;
   margin-right: 10px;
 }
 
@@ -347,6 +366,10 @@ button {
   width: 44px;
   height: 44px;
   border-radius: 50%;
+
+  transition-property: background-color, fill;
+  transition-duration: 250ms;
+  transition-timing-function: linear;
 }
 .wrap-card .social-link:hover,
 .wrap-card .social-link:focus {
@@ -356,7 +379,6 @@ button {
 .social-link:focus .link-icon,
 .social-link:hover .link-icon {
   fill: #ffffff;
-  /* background-color: var(--accent-color); */
 }
 
 /* CLients */
@@ -386,12 +408,20 @@ button {
   height: 92px;
   border: 1px solid #afb1b8;
   border-radius: 4px;
+
+  transition-property: border;
+  transition-duration: 250ms;
+  transition-timing-function: linear;
 }
 
 .clients-icon {
   width: 106px;
   height: 60px;
   fill: #afb1b8;
+
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: linear;
 }
 
 .clients-link:focus,
@@ -405,38 +435,10 @@ button {
 }
 
 /* Footer */
+
 .footer {
-  display: flex;
   background-color: #2f303a;
-
   padding: 60px 0;
-}
-.footer .logo {
-  display: inline-block;
-  color: #ffffff;
-  margin-bottom: 20px;
-}
-
-.footer .footer-item + .footer-item {
-  margin-top: 9px;
-}
-.footer-list {
-  font-size: 14px;
-  line-height: 1.71;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.footer-item .adress {
-  color: var(--primary-white-color);
-}
-
-.footer-list .link:focus,
-.footer-list .link:hover {
-  color: var(--accent-color);
-}
-
-.social-list footer {
-  display: flex;
 }
 
 .footer-container {
@@ -446,6 +448,45 @@ button {
 
 .container-left {
   margin-right: 70px;
+}
+
+.footer-logo {
+  display: inline-block;
+  margin-bottom: 20px;
+
+  font-family: "Raleway";
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 31px;
+  letter-spacing: 0.03em;
+}
+.footer-logo .accent {
+  color: var(--accent-color);
+}
+
+.footer-list .footer-item + .footer-item {
+  margin-top: 9px;
+}
+
+.footer-list {
+  font-size: 14px;
+  line-height: 1.71;
+  color: rgba(255, 255, 255, 0.6);
+}
+.footer-link {
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: linear;
+}
+
+.footer-link.adress {
+  color: var(--primary-white-color);
+}
+
+.footer-list .footer-link:focus,
+.footer-list .footer-link:hover {
+  color: var(--accent-color);
 }
 
 .container-right {
@@ -477,10 +518,10 @@ button {
   background-color: var(--accent-color);
 }
 
-/*  */
-/*  */
-/*  */
+/* =========================== */
 /* portfolio.html - Портфоліо */
+/* =========================== */
+
 header.section {
   border: 1px solid #ececec;
   padding-top: 0;
@@ -560,5 +601,98 @@ header.section {
   padding: 20px 24px;
 }
 
-/* footer */
-/*  */
+.thumb-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.thumb-text {
+  position: absolute;
+  transform: translateY(0);
+
+  transition-property: transform;
+  transition-duration: 250ms;
+  transition-timing-function: ease;
+
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  color: var(--primary-white-color);
+
+  display: flex;
+  align-items: center;
+  padding: 63px 24px;
+  background-color: rgba(33, 150, 243, 0.9);
+
+  opacity: 0;
+}
+
+.portfolio-link:hover .thumb-text,
+.portfolio-link:focus .thumb-text {
+  opacity: 1;
+}
+
+.portfolio-link:hover .thumb-text,
+.portfolio-link:focus .thumb-text {
+  transform: translateY(-100%);
+}
+
+/* ================================= */
+/* модальное окно */
+/* =================================  */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  transition: opacity 600ms, visibility 600ms;
+  opacity: 1;
+  pointer-events: initial;
+  visibility: visible;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+
+  width: 528px;
+  height: 581px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  transition: transform 3000ms ease-in-out;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.3);
+}
+
+.modal-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
