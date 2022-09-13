@@ -357,6 +357,9 @@ button {
   width: 20px;
   height: 20px;
   fill: #afb1b8;
+
+  transition-property: fill;
+  transition-duration: 250ms;
 }
 
 .social-link {
@@ -574,6 +577,9 @@ header.section {
   flex-wrap: wrap;
   padding: 0px;
   gap: 30px;
+
+  transition-property: box-shadow;
+  transition-duration: 250ms;
 }
 
 .examples .portfolio-link {
@@ -627,13 +633,6 @@ header.section {
   align-items: center;
   padding: 63px 24px;
   background-color: rgba(33, 150, 243, 0.9);
-
-  opacity: 0;
-}
-
-.portfolio-link:hover .thumb-text,
-.portfolio-link:focus .thumb-text {
-  opacity: 1;
 }
 
 .portfolio-link:hover .thumb-text,
